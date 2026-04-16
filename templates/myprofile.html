@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+PROFILE
+{% endblock %}
+{% block childpage %}
+
+
+{% if not request.session.user %}
+  <script>
+      alert("You have login first...");
+      location.href='/login/';
+  </script>
+{% endif %}
+<style>
+    .form-control{
+    height:50px;
+    background:#e9eaec !important;
+    border-radius:0px !important;
+    }
+    .input-group-text{
+    height:50px;
+    text-align:center !important;
+    background:black;
+    color:white;
+    border-radius:0px !important:
+    }
+</style>
+<!-- start  Heading -->
+<div class="row mt-4 mb-2 text-center">
+
+    <div class="col-sm-5 mx-auto">
+        <p class="fs-3 m-0">My <b class="txt-color2"> Profile</b></p>
+        <i>This layout provides essential information and settings for users
+            to manage their accounts.
+</i>
+        <hr/>
+    </div>
+</div>
+<!-- end  Heading -->
+{% for i in userinfo %}
+<div class="row mt-5 profile">
+    <div class="col-sm-5 p-5 mb-3 shadow-lg mx-auto position-relative mt-5"
+       ><img src="../{{i.picture}}" style="height:200px; width:200px;" class="rounded-pill
+       border border-dark border-1 p-1 border-3 position-absolute top-0 start-50 translate-middle"/>
+      <div class="pt-5 ">
+            <b><i class="fa-solid fa-user"></i>Name:</b> {{i.name}} <br/>
+        <b class="" ><i class="fa-solid fa-phone"></i>Mobile:</b>{{i.mobile}}<br/>
+        <b><i class="fa-regular fa-envelope"></i>Email:</b>{{i.email}}<br/>
+        <b><i class="fa-solid fa-house"></i>Address:</b>{{i.address}} <br/>
+        <b><i class="fa-solid fa-city"></i>City:</b>{{i.city}} <br/>
+        <b><i class="fa-solid fa-code"></i>Pincode:</b>{{i.pincode}}<br/>
+      </div>
+<p id="btnu" class="btn btn-outline-dark rounded-1 ">Update Profile <i class="fa-solid fa-pencil"></i></p>
+
+    </div>
+</div>
+
+<!--profile update form-->
+<div class="container" id="uform" style="display:none;">
+   <div class="row mt-4 mb-2">
+
+    <div class="col-sm-5 mx-auto text-center ">
+        <p class="fs-3 p-0 m-0">Update<b class="txt-color2">Here</b></p>
+        <hr/>
+        <i></i>
+        <hr/>
+    </div>
+</div>
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8 shadow-lg">
+            <form autocomplete="off" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row mt-4">
+                <div class="col-sm-6">
+                    <div class="input-group flex-nowrap">
+  <span class="input-group-text" ><i class="fa-solid fa-user-tie"></i></span>
+  <input type="text" class="form-control" required value="{{i.name}}" placeholder="Enter Your Name..."  name="name" aria-label="Username" aria-describedby="addon-wrapping">
+</div>
+                </div>
+     <div class="col-sm-6">
+                    <div class="input-group flex-nowrap">
+  <span class="input-group-text" ><i class="fa-solid fa-phone"></i></span>
+  <input type="number" class="form-control" required value="{{i.mobile}}" placeholder="Enter Your Mobile No..." name="mobile" aria-label="Username" aria-describedby="addon-wrapping">
+</div>
+                </div>
+
+            </div>
+             <div class="row mt-4">
+
+                  <div class="col-sm-6">
+                    <div class="input-group flex-nowrap">
+  <span class="input-group-text" ><i class="fa-solid fa-house"></i></span>
+  <input type="text" required class="form-control" value="{{i.address}}" placeholder="Enter Your Address..."  name="address" aria-label="Username" aria-describedby="addon-wrapping">
+</div>
+                </div>
+
+ <div class="col-sm-6">
+                    <div class="input-group flex-nowrap">
+  <span class="input-group-text" ><i class="fa-solid fa-city"></i></span>
+  <input type="text" class="form-control" required value="{{i.city}}" placeholder="Enter Your City..." name="city" aria-label="Username" aria-describedby="addon-wrapping">
+</div>
+                </div>
+
+
+            </div>
+             <div class="row mt-4">
+
+
+                   <div class="col-sm-6">
+                    <div class="input-group flex-nowrap">
+  <span class="input-group-text" ><i class="fa-solid fa-code"></i></span>
+  <input type="number" required class="form-control"  value="{{i.pincode}}" placeholder="Enter Your Pincode..." name="pincode" aria-label="Username" aria-describedby="addon-wrapping">
+</div>
+                </div>
+
+                   <div class="col-sm-6">
+                    <div class="input-group flex-nowrap">
+  <span class="input-group-text"><i class="fa-solid fa-key"></i></span>
+  <input type="password" required class="form-control" value="{{i.password}}" placeholder="Enter Your Password..." name="passwd" aria-label="Username" aria-describedby="addon-wrapping">
+</div>
+                </div>
+
+
+            </div>
+             <div class="row mt-4">
+
+                 <div class="col-sm-6">
+                    <div class="input-group flex-nowrap">
+  <span class="input-group-text"><i class="fa-solid fa-key"></i></span>
+  <input type="password" required class="form-control" placeholder="Enter Your Old Password..." name="cpasswd" aria-label="Username" aria-describedby="addon-wrapping">
+</div>
+                </div>
+                     <div class="col-sm-6">
+                    <div class="input-group flex-nowrap">
+  <span class="input-group-text" ><i class="fa-solid fa-image"></i></span>
+  <input type="file" required class="form-control" name="fu" aria-label="Username" aria-describedby="addon-wrapping">
+</div>
+                </div>
+
+            </div>
+<div class="row"><input type="submit" class="col-sm-12 w-50 my-4  btn mx-auto text-center bg-mycolor1 rounded" value="Submit Now"></div>
+
+                </form>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>
+{% endfor %}
+<!--end update form-->
+<script src="{% static 'js/jquery-3.7.1.js' %}"></script>
+ <script>
+     $(document).ready(function(){
+     $("#btnu").click(function(){
+     $("#uform").slideDown(1000)
+     })
+    })
+</script>
+{% endblock %}

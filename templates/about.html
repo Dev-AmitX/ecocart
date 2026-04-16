@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+ABOUTUS
+{% endblock %}
+{% block childpage %}
+<div class="container">
+     <!-- start  Heading -->
+<div class="row mt-4 mb-2 ">
+
+    <div class="col-sm-5 mx-auto text-center ">
+        <p class="fs-3 m-0">About <b class="txt-color2"> Us</b></p>
+        <i>Welcome to GloCery, your one-stop online grocery store! We're passionate about making grocery
+            shopping convenient, affordable, and enjoyable for you.
+</i>
+        <hr/>
+    </div>
+</div>
+<!-- end  Heading -->
+    <div class="row">
+        <div class="col-sm-6">
+            <img src="{% static 'images/img-4.jpg' %}" class="img-fluid">
+        </div>
+        <div class="col-sm-6 pt-3  fs-4 px-3">
+            Welcome to our e-commerce project, a streamlined online platform designed to offer a
+            fundamental yet effective e-commerce experience. This project aims to deliver a user-friendly
+            environment where customers can browse a wide array of products, manage their shopping cart, and
+            complete purchases effortlessly—all from the comfort of their homes.
+
+
+  </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-sm-6 pt-3 fs-4 px-3">
+            Our platform not only caters to shoppers but also provides an
+            intuitive admin panel for business management.
+            Administrators can efficiently handle product listings, organize categories,
+            and process customer orders. Security is paramount, so we've ensured that user data and
+            transactions are protected with robust safeguards.
+
+
+        </div>
+        <div class="col-sm-6">
+              <img src="{% static 'images/img-5.jpg' %}" class="img-fluid">
+        </div>
+    </div>
+
+     <div class="row mt-2">
+        <div class="col-sm-6">
+            <img src="{% static 'images/img-4.jpg' %}" class="img-fluid">
+        </div>
+        <div class="col-sm-6 pt-3 fs-4 px-3">
+           The primary objective of this project is to demonstrate the
+            core functionalities of a standard e-commerce system. By
+            integrating essential features and maintaining a simple user interface,
+            we aim to showcase how such a platform operates, bridging the gap between
+            online retail and consumer convenience.
+  </div>
+    </div>
+</div>
+{% endblock %}

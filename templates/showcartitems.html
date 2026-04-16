@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+CARTITEMS
+{% endblock %}
+{% block childpage %}
+
+{% if not request.session.user %}
+  <script>
+      alert("You have to login first...");
+      location.href='/login/';
+  </script>
+{% endif %}
+<!-- start  Heading -->
+<div class="row mt-4 mb-2">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-5 ">
+        <p class="fs-3 m-0">Your cart added<b class="txt-color2"> Items</b></p>
+        <i>You've added some amazing products to your cart! Order product to your cart and remove from cart.
+</i>
+        <hr/>
+    </div>
+</div>
+<!-- end  Heading -->
+<div class="row">
+    <div class="col-sm-8 mx-auto">
+        {% for i in cartdata %}
+        <!-- cart items --->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card mb-3 shadow-lg" >
+  <div class="row g-0">
+    <div class="col-md-2">
+      <img src="../{{i.product_image}}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-10">
+      <div class="card-body">
+          <table class="table table-hover">
+              <tr>
+                  <th>Name</th>
+                  <th>Unit Price</th>
+                  <th>Quantity</th>
+                  <th>Toatl Price</th>
+                  <th>Added Date</th>
+                  <th>Cancel</th>
+              </tr>
+              <tr>
+                  <td><b>{{i.product_name}}</b> | {{i.pw}}</td>
+                  <td><i class="fa-solid fa-indian-ruree-sign"></i>{{i.product_price}}</td>
+                  <td>{{i.quantity}}</td>
+                  <td><i class="fa-solid fa-indian-ruree-sign"></i>{{i.total_price}}</td>
+                  <td></i>{{i.added_date}}</td>
+                  <td><a href="/showcart?cid={{i.id}}" class="btn btn-danger" >Remove <i class="fa-solid fa-trash"> </i></a></td>
+
+              </tr>
+          </table>
+
+      </div>
+    </div>
+  </div>
+</div>
+            </div>
+        </div>
+        <!--  end cart items --->
+       {% endfor %}
+        <a href="/order?msg=1" class="btn btn-warning "> Order Now</a>
+    </div>
+</div>
+
+{% endblock %}

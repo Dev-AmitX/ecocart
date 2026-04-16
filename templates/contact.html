@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+CONTACTUS
+{% endblock %}
+{% block childpage %}
+<style>
+    .form-control{
+    height:50px;
+    }
+</style>
+<!-- start  Heading -->
+<div class="row mt-4 mb-2">
+    <div class="col-sm-5 mx-auto text-center ">
+        <p class="fs-3 m-0">Contact<b class="txt-color2"> Us</b></p>
+        <i>Thank you for reaching out to GloCery! We're here to help. Whether you have a
+            question, concern,
+            or feedback, our dedicated team is ready to assist you.
+</i>
+        <hr/>
+    </div>
+</div>
+<!-- end  Heading -->
+<!-- start contact us -->
+<div class="row">
+    <div class="col-sm-10 mx-auto">
+        <div class="row">
+             <div class="col-sm-6  bg-light shadow-lg rounded ">
+                <div class="row ">
+                    <div class="col-sm-4 mx-auto text-center fs-3 pt-5">
+                        Contact <b class="txt-color2">Info</b><hr/>
+                    </div>
+                </div>
+
+                <div class="row ">
+                    <div class="col-sm-7  mx-auto text-center fs-4 pt-3">
+                     <i class="fa-solid fa-house pe-1 txt-color2 icon"></i> Office <b>Address</b>
+                     <p class="pt-2 fs-5">
+                        Plot No-43, Behind H.P Petrol<br/>
+                         Pump,Tedhi Pulia Ring Rd, Sector<br/>
+                         5, Vikas Nagar, Lucknow, Uttar <br/>
+                         Pradesh 226022
+
+                        </p>
+                    </div>
+                </div>
+                 <div class="row ">
+                    <div class="col-sm-7  mx-auto text-center fs-4 pt-3">
+                   <i class="fa-solid fa-phone pe-1 txt-color2 icon"></i> Call <b>Us</b>
+                     <p class="pt-2 fs-5">
+                      +91 8652700734 ,<br/>
+                       +91 9569146725
+
+                        </p>
+                    </div>
+                </div>
+                 <div class="row ">
+                    <div class="col-sm-7  mx-auto text-center fs-4 pt-3">
+                   <i class="fa-solid fa-envelope pe-1 txt-color2 icon"></i> Mail <b>Us</b>
+                     <p class="pt-2 fs-5">
+                      Ecartamitkr@gmail.com ,<br/>
+                         amitkarma18@gmail.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 mt-5">
+                <form autocomplete="off" method="post" >
+                    {% csrf_token %}
+                    Name<br/>
+                    <input name="name" class="form-control shadow-lg  mb-1
+                     bg-body-tertiary rounded-0" type="text" required placeholder="Name..">
+                    Email<br/>
+                    <input name="email" class="form-control shadow-lg  mb-1
+                     bg-body-tertiary rounded-0" type="email" required placeholder="Email..">
+                    Mobile<br/>
+                    <input name="mobile" class="form-control shadow-lg  mb-1
+                     bg-body-tertiary rounded-0" type="number" required placeholder="Mobile..">
+                    Subject<br/>
+                    <input name="subject" class="form-control shadow-lg  mb-1
+                     bg-body-tertiary rounded-" type="text" required placeholder="Subject..">
+                    Message<br/>
+                    <textarea name="msg"  style="min-height:90px;" class="form-control shadow-lg  mb-3
+                     bg-body-tertiary rounded-0" type="text" required placeholder="Message.."></textarea>
+                    <input type="submit"   value="Save" class="form-control shadow-lg text-center mb-1
+                     w-25 rounded-1 mx-auto text-light bg-mycolor1" >
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end contact us -->
+<div class="row heading text-center my-4">
+    <div class="col-sm-4 mx-auto">
+          <p class="fs-3 p-0 m-0">Find us on <b class="txt-color2">Google Map <i class="fa-solid fa-location-dot mt-2 me-3"></i></b></p>
+        <i>sample text</i>
+        <hr>
+    </div>
+</div>
+<div class="row gmap">
+    <div class="col-sm-10 mx-auto">
+<iframe src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d7116.346355493531!2d80.9316526!3d26.8979985!3m2!1i1024!2i768!4f13.1!2m1!1stechpile!5e0!3m2!1sen!2sin!4v1726644320750!5m2!1sen!2sin" width="100%" height="450px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</div>
+{% endblock %}

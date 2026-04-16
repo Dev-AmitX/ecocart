@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+         {% block title %}
+
+
+            {% endblock %}
+
+    </title>
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <style>
+        :root
+        {
+        --color1:#31a650;
+        --color2:orange;
+        }
+        .bg-mycolor1
+        {
+        background:var(--color1) !important;
+        }
+         .bg-mycolor2
+        {
+        background:var(--color2) !important;
+        }
+        .txt-color1
+        {
+        color:var(--color1) !important;
+        }
+         .txt-color2
+        {
+        color:var(--color2) !important;
+        }
+        .t1 a
+        {
+        text-decoration:none;
+        color:#212539;
+        }
+        .icu
+        {
+        padding-top:2px;
+        height:20px;
+        border:1px solid #212529;
+        width:20px;
+        text-align:center
+        line-height:22px;
+        transition:all .5s;
+        border-radius:2px;
+        }
+        .icu:hover
+        {
+        border:1px solid #31a650;
+        color:#31a650;
+        transform:rotate(360deg);
+        transition:all .5s;
+        }
+        #menu
+        {
+        background:transparent !important;
+        }
+        #menu ul li a
+        {
+        color:white;
+        }
+        .ufooter
+        {
+        min-height:300px;
+        background:#2a2d2f;
+        }
+        .bfooter
+        {
+       margin-top:1px;
+        background:#222222;
+        text-align:center;
+
+        }
+
+.text-orange {
+    color: #f7931e; /* Orange */
+}
+
+.social-media li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.social-media i {
+    font-size: 24px;
+    color: white;
+      transition: all 0.5;
+}
+
+.social-media i:hover {
+    color: #31a650;
+    transform:scale(1.2);
+    transition: all 0.5;
+}
+
+.btn-orange {
+    background-color: #f7931e;
+    color: #white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.btn-orange:hover {
+    background-color:#31a650;
+}
+.link a{
+    text-decoration:none;
+    color:white;
+}
+ .link a:hover{
+ color:#31a650;
+    text-decoration:underline;
+}
+    .cf{
+    text-decoration:none;
+    color:white;
+    }
+      .cf:hover{
+ color:#f7931e;
+    text-decoration:underline;
+    }
+    .cardzoom{
+     transform:scale(1.0);
+     transition:all ease 2s;
+    }
+.cardzoom:hover{
+        transform:scale(1.1);
+        transition:all ease 2s;
+        }
+    .ic{
+        border-radius:50%;
+        border:1px solid white;
+        padding:15px;
+        }
+        .t1 a{
+        color:white;
+        }
+        .t1{
+        color:white;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class=" row t1 border-bottom border-light text-center py-1 bg-dark  text-light ">
+        <div class="col-sm-3 " b>
+            <a href="#">FAQs</a> |
+            <a href="#">About Us</a> |
+            <a href="#">Contact and Support</a> |
+
+        </div>
+        <div class="col-sm-3">
+           <i class="fa-solid fa-envelope  icu"></i> <a href="#">amit18@gmail.com</a>
+        </div>
+
+         <div class="col-sm-3">
+           <i class="fa-solid fa-phone  icu"></i> +91 8652700734  +91 123456754
+        </div>
+
+        <div class="col-sm-3">
+            <i class="fa-brands fa-facebook icu"></i>
+            <i class="fa-brands fa-twitter icu"></i>
+            <i class="fa-brands fa-youtube icu"></i>
+            <i class="fa-brands fa-instagram icu"></i>
+            <i class="fa-brands fa-linkedin icu"></i>
+        </div>
+    </div>
+    <div class=" row t2 text-center  py-4  " style="border-top:1px solid #31a650; " >
+       <div class="col-sm-4 fs-2">
+           Quick<b class="txt-color2">Cart <i class="fa-solid fa-bag-shopping"></i></b>
+       </div>
+       <div class="col-sm-4 padding-2">
+            {% if request.session.user %}
+           <a href="/history/" class="btn btn-sm bg-mycolor2 text-light "><i class="fa-solid fa-truck-fast"></i> Order History</a>
+           <a href="/profile/" class="btn btn-sm bg-mycolor2 text-light "><i class="fa-solid fa-user"></i> My Profile</a>
+            {% else %}
+           <h2 text-center>Welcome  to Quick Cart</h2>
+           {% endif %}
+       </div>
+       <div class="col-sm-4">
+           <a href="/showcart/" class="btn bg-mycolor2 btn-sm">Cart<i class="fa-solid fa-cart-shopping"></i> <i class="badge bg-dark">
+              {% if request.session.user %}
+               {{request.session.cartitems}}
+                {% else %}
+               0
+                {% endif %}
+           </i> </a>
+
+           {% if request.session.user %}
+            <img src="../{{request.session.userpic}} " class="p-1 border border-dark rounded-5" height="50px" width="50px" >
+             <b>{{request.session.username}}</b>
+           {% else %}
+           <i class="fa-regular fa-user"></i>
+           Guest User
+           {% endif %}
+
+       </div>
+
+    </div>
+    <div class=" row t3 bg-mycolor1 sticky-top shadow-lg " style="min-height:40px;">
+
+<div class="col-sm-3"></div>
+<div class="col-sm-6">
+    <!--start menu-->
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary p-0" id="menu">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="..">
+              <i class="fa-solid fa-house"></i> Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/product/"><i class="fa-solid fa-bag-shopping"></i> Product</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about/"><i class="fa-solid fa-address-card"></i> About Us</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/register/"><i class="fa-solid fa-pen-to-square"></i> Register</a>
+
+        </li>
+          <li class="nav-item">
+         <a class="nav-link" href="/contact/"><i class="fa-solid fa-phone"></i> Contact Us</a>
+        </li>
+      <li class="nav-item">
+         <a class="nav-link" href="/faqs/"><i class="fa-solid fa-circle-question"></i> FAQs</a>
+        </li>
+          <li class="nav-item">
+              {% if request.session.user %}
+               <a class="nav-link" href="/logout/"><i class="fa-solid fa-power-off"></i> Logout</a>
+              {% else %}
+               <a class="nav-link" href="/login/"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+              {% endif %}
+
+        </li>
+
+
+      </ul>
+    </div>
+  </div>
+</nav>
+    <!--end menu-->
+</div>
+<div class="col-sm-3"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 childpage " style="min-height:500px;">
+            {% block childpage %}
+            {% endblock %}
+        </div>
+    </div>
+    <div class="row ufooter mt-3">
+        <!-- Footer Section -->
+<footer class="footer-section pt-3  ">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h4 class="text-white b-b">Link</h4>
+                <ul class=" link list-unstyled">
+                    <li><a href=".." ><i class="fa fa-angle-right"></i> Home</a></li>
+                    <li><a href="/product/" ><i class="fa fa-angle-right"></i> Product</a></li>
+                    <li><a href="/../" ><i class="fa fa-angle-right"></i> Offer</a></li>
+                    <li><a href="/product/" ><i class="fa fa-angle-right"></i> New Deals</a></li>
+                    <li><a href="/profile/" ><i class="fa fa-angle-right"></i> My Profile</a></li>
+                    <li><a href="/register/" ><i class="fa fa-angle-right"></i> Register</a></li>
+                    <li><a href="/login/" ><i class="fa fa-angle-right"></i> Login</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h4 class="text-white b-b">Help & Support</h4>
+                <ul class="link list-unstyled">
+                    <li><a href="/about/" ><i class="fa fa-angle-right"></i> About Us</a></li>
+                    <li><a href="/contact/" ><i class="fa fa-angle-right"></i> Contact Us</a></li>
+                    <li><a href="/faqs/" ><i class="fa fa-angle-right"></i> FAQs</a></li>
+                </ul>
+                <h4 class="text-white b-b">Follow Us</h4>
+                <ul class="social-media list-unstyled">
+                    <li><a href="#" class="text-white"><i class="fa-brands fa-facebook"></i></a></li>
+                    <li><a href="#" class="text-white"><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href="#" class="text-white"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href="#" class="text-white"><i class="fa-brands fa-youtube"></i></a></li>
+                    <li><a href="#" class="text-white"><i class="fa-brands fa-whatsapp"></i></a></li>
+                </ul>
+
+            </div>
+            <div class="col-md-3">
+
+                    <h4 class="text-white  b-b">Contact Address</h4>
+                <p class="text-light">
+                    Plot No-43, Behind H.P Petrol Pump,
+                    Tedhi Pulia Ring Rd, Sector 5,
+                    Vikas Nagar, Lucknow,
+                      Uttar Pradesh 226022<br/>
+                      <br/>
+                    <i class="fa-solid fa-phone mt-2 me-3"></i><a href="tel:+91-7007237006" class="cf">+91-7007237006</a><br/>
+                    <i class="fa-solid fa-phone mt-2 me-3"></i><a href="tel:+91-9140444301" class="cf ">+91-9140444301</a><br/>
+                    <i class="fa-solid fa-envelope mt-2 me-3"></i><a href="#" class="cf ">quickcart@gmail.com</a>
+                </p>
+            </div>
+            <div class="col-md-3">
+              <div class="col-sm-3 fs-3 text-light" style="min-width:220px;">
+           Quick<b class="txt-color2">Cart <i class="fa-solid fa-bag-shopping"></i> </b>
+       </div>
+                <form>
+                    <input type="email" class="form-control mt-1" placeholder="Enter Email">
+                    <button type="submit" class="btn btn-orange mt-3">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+</footer>
+
+
+    </div>
+    <div class="row bfooter mt-1 text-light">
+        <div class="col-sm-6 pt-2">
+           <a href="/portfolio/" class="text-light" style="text-decoration:none;">Developed By : Er Amit Kumar</a>
+        </div>
+        <div class="col-sm-6 ">
+           <a href="https://www.techpile.in/"  class="text-white " target="_blank" style="text-decoration:none;">  &copy Techpile Technology Pvt. Ltd. </a>
+        </div>
+
+    </div>
+
+
+
+</div>
+<script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+
+</body>
+</html>

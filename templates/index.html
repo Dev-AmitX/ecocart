@@ -1,0 +1,245 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+HOME
+{% endblock %}
+{% block childpage %}
+ <div class="row slider">
+        <!-- start slider -->
+        <div class="col-sm-12 p-0">
+            <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+      {% for i in sliderdata %}
+    <div class="carousel-item active">
+      <img src="../{{i.slider_picture}}" style="max-height:560px;" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block text-dark mb-5">
+        <h5>{{i.title}}</h5>
+        <p>{{i.description}}</p>
+      </div>
+    </div>
+
+    {% endfor %}
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+        </div>
+        <!-- end  slider -->
+    </div>
+<!-- start  Heading -->
+<div class="row mt-4 mb-2">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-5 ">
+        <p class="fs-3 m-0">Featured<b class="txt-color2"> Categories</b></p>
+        <i>Lorem Ipsum is simply dummy text of the printing
+            and typesetting industry. Lorem Ipsum has been the industry's</i>
+        <hr/>
+    </div>
+</div>
+<!-- end  Heading -->
+    <div class="row category py-2">
+       <!-- start  category -->
+
+<div class="col-sm-1"></div>
+
+<div class="col-sm-10">
+    <div class="row">
+        {% for x in cdata %}
+      <div class="col-sm-2 text-center">
+          <p class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+              <img src="../{{x.category_picture}}" class="img-fluid" style="max-height:45px;" alt="...">
+              <br/><a href="/product?pid={{x.id}}" style="text-decoration:none;" class="text-dark">{{x.product_category}}</a>
+
+          </p>
+      </div>
+     {% endfor %}
+    </div>
+
+</div>
+<div class="col-sm-1"></div>
+      <!-- end  category -->
+    </div>
+<!-- start  Heading -->
+<div class="row mt-4 mb-2">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-5 ">
+        <p class="fs-3 m-0">Today's Deals | Best <b class="txt-color2">Offers</b></p>
+        <i>Lorem Ipsum is simply dummy text of the printing
+            and typesetting industry. Lorem Ipsum has been the industry's</i>
+        <hr/>
+    </div>
+</div>
+<!-- end  Heading -->
+    <div class="row maxdiscount">
+      <!-- start  discount -->
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            <div class="row">
+                {% for i in productdata %}
+                  <div class="col-sm-3">
+                <!--start product -->
+                      <div class="card border-0 shadow p-3 mb-5 bg-body-tertiary rounded" >
+                          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-mycolor2"><i class="fa-solid fa-indian-rupee-sign"></i>
+                              {{i.discount_price}} <span class="visually-hidden">unread messages</span></span>
+
+            <img src="../{{i.product_image}}" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title">{{i.product_name}}</h5>
+           <p class="card-text">
+               <i class="fa-solid fa-indian-rupee-sign"></i>{{i.price}}
+               <b>{{i.quantity}}</b>
+              <!--  start cart count -->
+                <form action="/cart/">
+                <input type="hidden" name="pid"  value="{{i.id}}">
+                <input type="hidden" name="pimage" value="{{i.product_image}}">
+                <input type="hidden" name="pprice" value="{{i.price}}">
+                <input type="hidden" name="pname" value="{{i.product_name}}">
+                <input type="hidden" name="pw" value="{{i.quantity}}">
+
+
+                <div class="input-group">
+                <b class="input-group-text fs-4" onclick="cminus{{i.id}}()">-</b>
+                <input class="form-control text-center fs-3" type="text" id="carttxt{{i.id}}" name="pquantity" value="0" readonly>
+                <b class="input-group-text fs-4" onclick="cplus{{i.id}}()">+</b>
+            </div>
+              <!-- end cart count -->
+           </p>
+           <input type="submit" value="Add" class="btn bg-mycolor1 text-light">
+           </form>
+           </div>
+           </div>
+                <!--end product -->
+            </div>
+
+                <script>
+    var x{{i.id}}=0
+    function cplus{{i.id}}()
+    {
+    x{{i.id}}++;
+    document.getElementById("carttxt{{i.id}}").value=x{{i.id}}
+    }
+    function cminus{{i.id}}()
+    { if(x{{i.id}}>0)
+    {
+        x{{i.id}}--;
+    document.getElementById("carttxt{{i.id}}").value=x{{i.id}}
+    }
+    }
+</script>
+      {% endfor %}
+
+
+            </div>
+        </div>
+        <div class="col-sm-1"></div>
+       <!-- end  discount -->
+    </div>
+    <div class="row offers">
+        <div class="col-sm-10 mx-auto">
+            <div class="row">
+                <div class="col-sm-4">
+                   <img src="{% static 'images/best-offers/offer-1.jpg' %}" class="img-fluid "  alt="...">
+                </div>
+                <div class="col-sm-4">
+                  <img src="{% static 'images/best-offers/offer-2.jpg' %}" class="img-fluid "  alt="...">
+                </div>
+                <div class="col-sm-4">
+                   <img src="{% static 'images/best-offers/offer-3.jpg' %}" class="img-fluid "  alt="...">
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Our Services Section Start -->
+
+<div class="container">
+    <div class="row heading text-center my-4">
+    <div class="col-sm-4 mx-auto">
+          <p class="fs-3 p-0 m-0">Our <b class="txt-color1">Services </b></p>
+        <i>sample text</i>
+        <hr>
+    </div>
+</div>
+     <div class="row my-5 ">
+         <div class="col-sm-3 text-center">
+            <i class="fa-solid fa-truck-fast fs-3 ic"></i>
+             <h2>Free Shipping</h2>
+             <b>on the order above 999/-</b>
+         </div>
+          <div class="col-sm-3 text-center">
+            <i class="fa-solid fa-truck-fast fs-3 ic"></i>
+             <h2>Free Shipping</h2>
+             <b>on the order above 999/-</b>
+         </div>
+          <div class="col-sm-3 text-center">
+            <i class="fa-solid fa-truck-fast fs-3 ic"></i>
+             <h2>Free Shipping</h2>
+             <b>on the order above 999/-</b>
+         </div>
+          <div class="col-sm-3 text-center">
+            <i class="fa-solid fa-truck-fast fs-3 ic"></i>
+             <h2>Free Shipping</h2>
+             <b>on the order above 999/-</b>
+         </div>
+     </div>
+</div>
+
+<!-- Our Services Section End -->
+
+<!-- Our Team Section Start  -->
+<div class="row team my-4">
+     <div class="text-center fs-3 mb-4">Our <b class="txt-color2"> Team</b></div>
+    <div class="col-sm-3 text-center ">
+        <div class="card mx-auto cardzoom" style="width: 18rem;">
+  <img src="{% static 'images/team/img-1.jpg' %}" class="card-img-top" height="300" width="100" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Aman</h5>
+      <h6 class="card-subtitle">Manager</h6>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+    </div>
+    <div class="col-sm-3 text-center">
+                <div class="card mx-auto cardzoom" style="width: 18rem;">
+  <img src="{% static 'images/team/img-2.jpg' %}" class="card-img-top" height="300" width="100" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Shivam</h5>
+      <h6 class="card-subtitle">Manager</h6>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+    </div>
+    <div class="col-sm-3 text-center">
+                <div class="card mx-auto cardzoom" style="width: 18rem;">
+  <img src="{% static 'images/team/img-3.jpg' %}" class="card-img-top" height="300" width="100" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Aditi</h5>
+      <h6 class="card-subtitle">Manager</h6>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+    </div>
+    <div class="col-sm-3 text-center">
+                <div class="card mx-auto cardzoom" style="width: 18rem;">
+  <img src="{% static 'images/team/img-4.jpg' %}" class="card-img-top" height="300" width="100" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Sneha</h5>
+      <h6 class="card-subtitle">Manager</h6>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+    </div>
+</div>
+<!-- Our Team Section End -->
+{% endblock %}

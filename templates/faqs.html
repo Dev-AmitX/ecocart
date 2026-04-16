@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+FAQs
+{% endblock %}
+{% block childpage %}
+<div class="container">
+    <div class="row py-3">
+        <div class="text-center fs-3">Popular<b class="txt-color2"> FAQs</b></div>
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <div class="accordion" id="accordionExample">
+  <div class="accordion-item mt-3 shadow-lg">
+    <h2 class="accordion-header">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <b>What is this e-commerce website project?</b>
+
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+            This e-commerce website project is a simplified online platform designed to facilitate buying and selling products
+        with a focus on core functionalities and user experience.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item mt-3 shadow-lg">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        <b>How do I browse products on the website?</b>
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        You can browse products by navigating through various categories listed on
+        the homepage or using the search bar to find specific items.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item mt-3 shadow-lg">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        <b>How do I add products to my cart?</b>
+
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+      To add products to your cart, simply select the item you wish to purchase,
+        choose the quantity, and click the “Add to Cart” button.
+       </div>
+    </div>
+  </div>
+               <div class="accordion-item mt-3 shadow-lg">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+        <b>How can I create an account?</b>
+
+      </button>
+    </h2>
+    <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+      You can create an account by clicking on the “Sign Up” button on the
+        homepage and filling out the registration form with your details.
+
+       </div>
+    </div>
+  </div>
+               <div class="accordion-item mt-3 shadow-lg">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
+       <b>What should I do if I forget my password?</b>
+
+
+      </button>
+    </h2>
+    <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+       Click on the “Forgot Password” link on the login page to
+        reset your password. Follow the instructions sent to your email to create a new password.
+
+       </div>
+    </div>
+  </div>
+               <div class="accordion-item mt-3 shadow-lg">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseThree">
+        <b>Can I track my order?</b>
+
+
+      </button>
+    </h2>
+    <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+      Yes, after placing an order, you can track its status by going to the
+        “Order History” section in your account.
+
+       </div>
+    </div>
+  </div>
+               <div class="accordion-item mt-3 shadow-lg">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseThree">
+      <b> What is the return policy?</b>
+
+
+      </button>
+    </h2>
+    <div id="collapseSeven" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+       The return policy details are specified on the website. Typically, you can return
+        items within a certain period if they meet the return criteria.
+
+       </div>
+    </div>
+  </div>
+               <div class="accordion-item mt-3 shadow-lg">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseThree">
+        <b>How do I add or remove products from my cart?</b>
+
+      </button>
+    </h2>
+    <div id="collapseEight" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+      You can add or remove products from your cart by visiting the cart page,
+        adjusting quantities, or deleting items as needed.
+
+       </div>
+    </div>
+  </div>
+               <div class="accordion-item mt-3 shadow-lg">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseThree">
+        <b>Are there any discounts or promotions available?</b>
+
+
+      </button>
+    </h2>
+    <div id="collapseNine" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+    Check the “Promotions” or “Offers” section on the website for information on current
+        discounts and special deals.
+       </div>
+    </div>
+  </div>
+
+</div>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+
+</div>
+{% endblock %}

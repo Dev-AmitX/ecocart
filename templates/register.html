@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+REGISTER
+{% endblock %}
+{% block childpage %}
+<style>
+    .form-control{
+    height:50px;
+    background:#e9eaec !important;
+    border-radius:0px !important;
+    }
+    .input-group-text{
+    height:50px;
+    text-align:center !important;
+    background:black;
+    color:white;
+    border-radius:0px !important:
+    }
+</style>
+<div class="container">
+   <div class="row mt-4 mb-2">
+
+    <div class="col-sm-5 mx-auto text-center ">
+        <p class="fs-3 p-0 m-0">Register<b class="txt-color2"> Now</b></p>
+        <hr/>
+        <i>Welcome to GloCery! Create an account to unlock exclusive
+            benefits and experience seamless grocery shopping.
+</i>
+        <hr/>
+    </div>
+</div>
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8 shadow-lg">
+            <form autocomplete="off" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row mt-4">
+                <div class="col-sm-6">
+                    <div class="input-group flex-nowrap">
+  <span class="input-group-text" ><i class="fa-solid fa-user-tie"></i></span>
+  <input type="text" class="form-control"  placeholder="Enter Your Name..."  name="name" aria-label="Username" aria-describedby="addon-wrapping">
+</div>
+                </div>
+                     <div class="col-sm-6">
+                    <div class="input-group flex-nowrap">
+  <span class="input-group-text" ><i class="fa-regular fa-envelope"></i></span>
+  <input type="email" class="form-control" placeholder="Enter Your Email..." name="email" aria-label="Username" aria-describedby="addon-wrapping">
+</div>
+                </div>
+
+            </div>
+             <div class="row mt-4">
+
+                     <div class="col-sm-6">
+                    <div class="input-group flex-nowrap">
+  <span class="input-group-text" ><i class="fa-solid fa-phone"></i></span>
+  <input type="number" class="form-control" placeholder="Enter Your Mobile No..." name="mobile" aria-label="Username" aria-describedby="addon-wrapping">
+</div>
+                </div>
+                  <div class="col-sm-6">
+                    <div class="input-group flex-nowrap">
+  <span class="input-group-text" ><i class="fa-solid fa-house"></i></span>
+  <input type="text" class="form-control" placeholder="Enter Your Address..."  name="address" aria-label="Username" aria-describedby="addon-wrapping">
+</div>
+                </div>
+
+            </div>
+             <div class="row mt-4">
+
+
+                   <div class="col-sm-6">
+                    <div class="input-group flex-nowrap">
+  <span class="input-group-text" ><i class="fa-solid fa-code"></i></span>
+  <input type="number" class="form-control" placeholder="Enter Your Pincode..." name="pincode" aria-label="Username" aria-describedby="addon-wrapping">
+</div>
+                </div>
+                  <div class="col-sm-6">
+                    <div class="input-group flex-nowrap">
+  <span class="input-group-text" ><i class="fa-solid fa-city"></i></span>
+  <input type="text" class="form-control" placeholder="Enter Your City..." name="city" aria-label="Username" aria-describedby="addon-wrapping">
+</div>
+                </div>
+
+            </div>
+             <div class="row mt-4">
+
+                 <div class="col-sm-6">
+                    <div class="input-group flex-nowrap">
+  <span class="input-group-text"><i class="fa-solid fa-key"></i></span>
+  <input type="password" class="form-control" placeholder="Enter Your Password..." name="passwd" aria-label="Username" aria-describedby="addon-wrapping">
+</div>
+                </div>
+                     <div class="col-sm-6">
+                    <div class="input-group flex-nowrap">
+  <span class="input-group-text" ><i class="fa-solid fa-image"></i></span>
+  <input type="file" class="form-control" name="fu" aria-label="Username" aria-describedby="addon-wrapping">
+</div>
+                </div>
+
+            </div>
+<div class="row"><input type="submit" class="col-sm-12 w-50 my-4  btn mx-auto text-center bg-mycolor1 rounded" value="Submit Now"></div>
+
+                </form>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>
+{% endblock %}

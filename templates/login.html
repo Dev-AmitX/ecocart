@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+LOGIN
+{% endblock %}
+{% block childpage %}
+<style>
+.form-control
+    {
+    height:50px;
+    border:0px ! important;
+
+    }
+</style>
+ <div class="row mt-4 mb-2">
+
+    <div class="col-sm-5 mx-auto text-center ">
+        <p class="fs-3  m-0">Login<b class="txt-color2"> Here.</b></p>
+        <hr/>
+        <i>Lorem Ipsum is simply dummy text of the printing
+            and typesetting industry. Lorem Ipsum has been the industry's</i>
+        <hr/>
+    </div>
+</div>
+<!-- end haeding -->
+<div class="row">
+
+    <div class="col-sm-5 mx-auto">
+        <form method="post" autocomplete="off">
+            {% csrf_token %}
+
+        Userid<br/><input type="email" name="userid" class="form-control shadow-lg mb-2" required placeholder="Username..">
+        Password<br><input type="password" name="passwd" class="form-control shadow-lg mb-2" required placeholder="Password..">
+        <input type="submit" value="Login" class="form-control border-0 mt-2 btn bg-mycolor1 text-light mt-2">
+            </form>
+    </div>
+
+</div>
+
+{% endblock %}

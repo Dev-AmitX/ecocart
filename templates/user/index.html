@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <style>
+        .bg-mycolor1
+        {
+        background:#31a650;
+        }
+         .bg-mycolor2
+        {
+        background:#f7931e;
+        }
+        .txt-color1
+        {
+        color:#31a650;
+        }
+         .txt-color2
+        {
+        color:#f7931e;
+        }
+        .t1 a
+        {
+        text-decoration:none;
+        color:#212539;
+        }
+        .icu
+        {
+        padding-top:2px;
+        height:20px;
+        border:1px solid #212529;
+        width:20px;
+        text-align:center
+        line-height:22px;
+        transition:all .5s;
+        border-radius:2px;
+        }
+        .icu:hover
+        {
+        border:1px solid #31a650;
+        color:#31a650;
+        transform:rotate(360deg);
+        transition:all .5s;
+        }
+        #menu
+        {
+        background:transparent !important;
+        }
+        #menu ul li a
+        {
+        color:white;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class=" row t1 border-bottom border-light text-center py-1 ">
+        <div class="col-sm-3 " b>
+            <a href="#">FAQs</a>|
+            <a href="#">About Us</a>|
+            <a href="#">Contact and Support</a>|
+
+        </div>
+        <div class="col-sm-3">
+           <i class="fa-solid fa-envelope  icu"></i> <a href="#">amit@techpile.com</a>
+        </div>
+
+         <div class="col-sm-3">
+           <i class="fa-solid fa-phone  icu"></i> +91,112323222,  +91 123456754
+        </div>
+
+        <div class="col-sm-3">
+            <i class="fa-brands fa-facebook icu"></i>
+            <i class="fa-brands fa-twitter icu"></i>
+            <i class="fa-brands fa-youtube icu"></i>
+            <i class="fa-brands fa-instagram icu"></i>
+            <i class="fa-brands fa-linkedin icu"></i>
+        </div>
+    </div>
+    <div class=" row t2 text-center  py-3">
+       <div class="col-sm-3 fs-3">
+           Quick<b class="txt-color2">Cart <i class="fa-solid fa-bag-shopping"></i></b>
+       </div>
+       <div class="col-sm-6"></div>
+       <div class="col-sm-3">
+           <a href="#" class="btn bg-mycolor2 btn-sm">Cart<i class="fa-solid fa-cart-shopping"></i> <i class="badge bg-dark">0</i> </a>
+       <i class="fa-regular fa-user"></i>Amit Kumar
+       </div>
+
+    </div>
+    <div class=" row t3 bg-mycolor1 " style="min-height:40px;">
+<div class="col-sm-3"></div>
+<div class="col-sm-6">
+    <!--start menu-->
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary p-0" id="menu">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">
+              <i class="fa-solid fa-house"></i> Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Product</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="fa-solid fa-user"></i> About Us</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="#"><i class="fa fa-sign-in"></i> Register</a>
+
+        </li>
+          <li class="nav-item">
+         <a class="nav-link" href="#"><i class="fa-solid fa-address-book"></i> Contact</a>
+        </li>
+      <li class="nav-item">
+         <a class="nav-link" href="#">FAQs</a>
+        </li>
+          <li class="nav-item">
+         <a class="nav-link" href="#">Login</a>
+        </li>
+
+
+      </ul>
+    </div>
+  </div>
+</nav>
+    <!--end menu-->
+</div>
+<div class="col-sm-3"></div>
+    </div>
+
+    <div class="row slider">
+        <!-- start slider -->
+        <div class="col-sm-12 p-0">
+            <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'images/img-1.jpg' %}" style="max-height:500px;" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/img-2.jpg' %}" style="max-height:500px;"  class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/img-3.jpg' %}" style="max-height:500px;"  class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+        </div>
+        <!-- end  slider -->
+    </div>
+    <div class="row category">
+       <!-- start  category -->
+        <div class="text-center fs-3">Our Top<b class="txt-color2"> Categories</b></div>
+<div class="col-sm-1"></div>
+<div class="col-sm-10">
+    <div class="row">
+      <div class="col-sm-2 text-center">
+          <p class="shadow p-3 mb-5 bg-body-tertiary rounded">
+              <img src="{% static 'images/category/icon-1.svg' %}" class="img-fluid" style="max-height:45px;" alt="...">
+              <br/><b>Fruits</b>
+          </p>
+      </div>
+        <div class="col-sm-2 text-center">
+          <p class="shadow p-3 mb-5 bg-body-tertiary rounded">
+              <img src="{% static 'images/category/icon-1.svg' %}" class="img-fluid" style="max-height:45px;" alt="...">
+              <br/><b>Fruits</b>
+          </p>
+      </div>
+        <div class="col-sm-2 text-center">
+          <p class="shadow p-3 mb-5 bg-body-tertiary rounded">
+              <img src="{% static 'images/category/icon-1.svg' %}" class="img-fluid" style="max-height:45px;" alt="...">
+              <br/><b>Fruits</b>
+          </p>
+      </div>
+        <div class="col-sm-2 text-center">
+          <p class="shadow p-3 mb-5 bg-body-tertiary rounded">
+              <img src="{% static 'images/category/icon-1.svg' %}" class="img-fluid" style="max-height:45px;" alt="...">
+              <br/><b>Fruits</b>
+          </p>
+      </div>
+        <div class="col-sm-2 text-center">
+          <p class="shadow p-3 mb-5 bg-body-tertiary rounded">
+              <img src="{% static 'images/category/icon-1.svg' %}" class="img-fluid" style="max-height:45px;" alt="...">
+              <br/><b>Fruits</b>
+          </p>
+      </div>
+        <div class="col-sm-2 text-center">
+          <p class="shadow p-3 mb-5 bg-body-tertiary rounded">
+              <img src="{% static 'images/category/icon-1.svg' %}" class="img-fluid" style="max-height:45px;" alt="...">
+              <br/><b>Fruits</b>
+          </p>
+      </div>
+    </div>
+</div>
+<div class="col-sm-1"></div>
+      <!-- end  category -->
+    </div>
+    <div class="row maxdiscount">
+      <!-- start  discount -->
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            <div class="fs-3">Today's Deals | Best <b class="txt-color2">Offers</b></div>
+            <div class="row">
+                  <div class="col-sm-3">
+                <!--start product -->
+                      <div class="card border-0 shadow p-3 mb-5 bg-body-tertiary rounded" >
+            <img src="{% static 'images/product/big-1.jpg' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title">Title</h5>
+           <p class="card-text"></p>
+           <a href="#" class="btn btn-sm bg-mycolor2 text-light">Cart</a>
+           <a href="#" class="btn btn-sm bg-mycolor2 text-light">Order Now</a>
+           </div>
+           </div>
+                <!--end product -->
+            </div>
+            </div>
+        </div>
+        <div class="col-sm-1"></div>
+       <!-- end  discount -->
+    </div>
+    <div class="row ufooter"></div>
+    <div class="row bfooter"></div>
+
+
+
+</div>
+<script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+</body>
+</html>
